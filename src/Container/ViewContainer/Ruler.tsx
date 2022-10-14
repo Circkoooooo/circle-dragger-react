@@ -27,7 +27,7 @@ export const Ruler = (props: RulerProps) => {
 	});
 
 	return (
-		<div className='ruler' style={rulerStyle(direction, offset)}>
+		<div style={rulerStyle(direction, offset)}>
 			<canvas
 				ref={canvas}
 				width={direction === 'column' ? 20 : controllerSize.controllerWidth}

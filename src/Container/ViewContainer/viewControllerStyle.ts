@@ -4,6 +4,7 @@ export const viewControllerStyle = (): React.CSSProperties => {
 		flex: 1,
 		backgroundColor: '#f0f0f0',
 		position: 'relative',
+		overflow: 'auto',
 	};
 };
 
@@ -14,6 +15,8 @@ export const rulerStyle = (
 	let mainSideSize: string = '0';
 	let secondarySideSize: string = '0';
 	let translate = '';
+	let left = 0;
+	let top = 0;
 
 	if (direction === 'row') {
 		mainSideSize = '100%';
@@ -25,9 +28,11 @@ export const rulerStyle = (
 		translate = `translateY(${offset}px)`;
 	}
 	return {
+		left,
+		top,
 		width: mainSideSize,
 		height: secondarySideSize,
-		position: 'absolute',
+		position: 'sticky',
 		backgroundColor: 'black',
 		transform: translate,
 	};
