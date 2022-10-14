@@ -61,6 +61,7 @@ export const canvasParentContainerStyle = (): React.CSSProperties => {
 	return {
 		width: 'auto',
 		display: 'inline-block',
+		margin: '20px',
 		padding: '100px',
 		position: 'absolute',
 		top: '0',
