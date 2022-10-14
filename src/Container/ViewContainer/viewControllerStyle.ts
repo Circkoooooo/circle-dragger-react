@@ -1,39 +1,74 @@
+import React from 'react';
+
 export const viewControllerStyle = (): React.CSSProperties => {
 	return {
-		height: '100%',
 		flex: 1,
 		backgroundColor: '#f0f0f0',
 		position: 'relative',
 		overflow: 'auto',
+		zIndex: '1',
 	};
 };
 
 export const rulerStyle = (
 	direction: 'row' | 'column',
-	offset: number
+	offset: number,
+	width: number,
+	height: number
 ): React.CSSProperties => {
 	let mainSideSize: string = '0';
 	let secondarySideSize: string = '0';
 	let translate = '';
-	let left = 0;
-	let top = 0;
+
+	const stickyConfig: React.CSSProperties = {
+		position: 'sticky',
+	};
 
 	if (direction === 'row') {
-		mainSideSize = '100%';
+		mainSideSize = width + 'px';
 		secondarySideSize = '20px';
 		translate = `translateX(${offset}px)`;
+		stickyConfig.top = '0';
 	} else {
 		mainSideSize = '20px';
-		secondarySideSize = '100%';
+		secondarySideSize = height + 'px';
 		translate = `translateY(${offset}px)`;
+		stickyConfig.left = '0';
 	}
 	return {
-		left,
-		top,
+		...stickyConfig,
 		width: mainSideSize,
 		height: secondarySideSize,
-		position: 'sticky',
 		backgroundColor: 'black',
 		transform: translate,
+		zIndex: '3',
+	};
+};
+
+/**
+ * canvas元素父元素的样式，被子元素撑开，用来设置canvas外圈边距和定位canvas
+ * @returns
+ */
+export const canvasParentContainerStyle = (): React.CSSProperties => {
+	return {
+		width: 'auto',
+		display: 'inline-block',
+		padding: '100px',
+		position: 'absolute',
+		top: '0',
+		left: '0',
+	};
+};
+/**
+ * 屏幕 画布的样式 1920*1080 default size
+ * @returns
+ */
+export const canvasStyle = (): React.CSSProperties => {
+	return {
+		height: '1080px',
+		width: '1920px',
+		backgroundColor: 'rgba(0,0,0,0.08)',
+		zIndex: '2',
+		borderRadius: '8px',
 	};
 };

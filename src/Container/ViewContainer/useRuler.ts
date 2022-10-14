@@ -7,26 +7,26 @@ export const renderMark = (
 	state: RulerProps,
 	canvas: HTMLCanvasElement | null
 ) => {
-	const { controllerSize, direction } = state;
-	const { controllerHeight, controllerWidth } = controllerSize;
+	const { viewSize, direction } = state;
+	const { viewHeight, viewWidth } = viewSize;
 	let shortMark = 8;
 	let longMark = 14;
 
 	if (!canvas) return;
 	const context = canvas.getContext('2d') as CanvasRenderingContext2D;
-	context.clearRect(0, 0, controllerWidth, controllerHeight);
+	context.clearRect(0, 0, viewWidth, viewHeight);
 	context.strokeStyle = 'white';
 	context.lineWidth = 2;
 
 	if (direction === 'row') {
-		for (let i = 0; i < controllerWidth; i += 10) {
+		for (let i = 0; i < viewWidth; i += 10) {
 			context.beginPath();
 			context.moveTo(i, 0);
 			context.lineTo(i, i % 100 === 0 ? longMark : shortMark);
 			context.stroke();
 			context.closePath();
 		}
-		for (let i = 0; i < controllerWidth; i += 10) {
+		for (let i = 0; i < viewWidth; i += 10) {
 			context.fillStyle = 'white';
 			if (i % 100 === 0) {
 				context.save();
@@ -37,14 +37,14 @@ export const renderMark = (
 			}
 		}
 	} else {
-		for (let i = 0; i < controllerHeight; i += 10) {
+		for (let i = 0; i < viewHeight; i += 10) {
 			context.beginPath();
 			context.moveTo(0, i);
 			context.lineTo(i % 100 === 0 ? longMark : shortMark, i);
 			context.stroke();
 			context.closePath();
 		}
-		for (let i = 0; i < controllerHeight; i += 10) {
+		for (let i = 0; i < viewHeight; i += 10) {
 			context.fillStyle = 'white';
 			if (i % 100 === 0) {
 				context.save();

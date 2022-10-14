@@ -9,11 +9,15 @@ export type RulerProps = {
 		controllerHeight: number;
 	};
 	offset: number;
+	viewSize: {
+		viewWidth: number;
+		viewHeight: number;
+	};
 };
 
 export const Ruler = (props: RulerProps) => {
 	const canvas = useRef<HTMLCanvasElement>(null);
-	const { direction, controllerSize, offset } = props;
+	const { direction, controllerSize, offset, viewSize } = props;
 
 	useMemo(() => {
 		renderMark(props, canvas.current);
@@ -27,11 +31,18 @@ export const Ruler = (props: RulerProps) => {
 	});
 
 	return (
-		<div style={rulerStyle(direction, offset)}>
+		<div
+			style={rulerStyle(
+				direction,
+				offset,
+				viewSize.viewWidth,
+				viewSize.viewHeight
+			)}
+		>
 			<canvas
 				ref={canvas}
-				width={direction === 'column' ? 20 : controllerSize.controllerWidth}
-				height={direction === 'row' ? 20 : controllerSize.controllerHeight}
+				width={direction === 'column' ? 20 : viewSize.viewWidth}
+				height={direction === 'row' ? 20 : viewSize.viewHeight}
 			></canvas>
 		</div>
 	);
