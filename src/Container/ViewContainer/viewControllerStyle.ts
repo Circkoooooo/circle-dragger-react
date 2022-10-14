@@ -3,13 +3,21 @@ import React from 'react';
 export const viewControllerStyle = (): React.CSSProperties => {
 	return {
 		flex: 1,
-		backgroundColor: '#f0f0f0',
+		backgroundColor: '#ffffff',
 		position: 'relative',
 		overflow: 'auto',
 		zIndex: '1',
 	};
 };
 
+/**
+ * 尺子的样式
+ * @param direction
+ * @param offset
+ * @param width
+ * @param height
+ * @returns
+ */
 export const rulerStyle = (
 	direction: 'row' | 'column',
 	offset: number,
@@ -39,7 +47,7 @@ export const rulerStyle = (
 		...stickyConfig,
 		width: mainSideSize,
 		height: secondarySideSize,
-		backgroundColor: 'black',
+		backgroundColor: '#eeeeee',
 		transform: translate,
 		zIndex: '3',
 	};

@@ -15,7 +15,8 @@ export const renderMark = (
 	if (!canvas) return;
 	const context = canvas.getContext('2d') as CanvasRenderingContext2D;
 	context.clearRect(0, 0, viewWidth, viewHeight);
-	context.strokeStyle = 'white';
+	context.strokeStyle = '#858585';
+	context.fillStyle = '#858585';
 	context.lineWidth = 2;
 
 	if (direction === 'row') {
@@ -27,7 +28,6 @@ export const renderMark = (
 			context.closePath();
 		}
 		for (let i = -80; i < viewWidth; i += 10) {
-			context.fillStyle = 'white';
 			if (i - 80 >= 0 && (i - 80) % 100 === 0) {
 				context.save();
 				context.translate(5, 0);
@@ -45,7 +45,6 @@ export const renderMark = (
 			context.closePath();
 		}
 		for (let i = -80; i < viewHeight; i += 10) {
-			context.fillStyle = 'white';
 			if (i - 80 >= 0 && (i - 80) % 100 === 0) {
 				context.save();
 				context.translate(10, 5);
