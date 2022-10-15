@@ -1,11 +1,11 @@
-import { ViewController } from './Container/ViewContainer/ViewController';
-import { DataContainer } from './Container/DataContainter/DataContainer';
+import { ViewController } from './Container/ViewController/ViewController';
+import { ElementController } from './Container/ElementController/ElementController';
 import './App.css';
 
 function App() {
 	return (
 		<div className='app'>
-			<DataContainer></DataContainer>
+			<ElementController></ElementController>
 			<ViewController></ViewController>
 		</div>
 	);
