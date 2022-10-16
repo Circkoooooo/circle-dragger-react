@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import elementReducer from '../store/features/element/elementSlice';
 
 export const store = configureStore({
