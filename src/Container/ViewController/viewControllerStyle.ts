@@ -74,6 +74,7 @@ export const canvasParentContainerStyle = (): React.CSSProperties => {
  */
 export const canvasStyle = (): React.CSSProperties => {
 	return {
+		position: 'relative',
 		height: '1080px',
 		width: '1920px',
 		backgroundColor: 'rgba(0,0,0,0.08)',
