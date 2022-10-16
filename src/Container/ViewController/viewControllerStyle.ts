@@ -81,3 +81,13 @@ export const canvasStyle = (): React.CSSProperties => {
 		borderRadius: '8px',
 	};
 };
+
+export const elementStyle = (): React.CSSProperties => {
+	const top = Math.random() * 50;
+	const left = Math.random() * 50;
+	return {
+		position: 'absolute',
+		top,
+		left,
+	};
+};
