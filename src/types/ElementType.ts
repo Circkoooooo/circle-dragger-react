@@ -8,3 +8,7 @@ export type ElementType = {
 export type RenderedElementType = {
 	ele: ReactNode;
 };
+
+export type RenderedElementsType = {
+	renderedElements?: RenderedElementType[];
+};
