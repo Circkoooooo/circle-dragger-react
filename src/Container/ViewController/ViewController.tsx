@@ -1,4 +1,5 @@
-import { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, ReactNode } from 'react';
+import { RenderedElementType } from '../../types/ElementType';
 import { Ruler } from './Ruler';
 import { useViewControllerConfig } from './useViewController';
 import {
@@ -7,9 +8,32 @@ import {
 	viewControllerStyle,
 } from './viewControllerStyle';
 
+const renderedElements: ReactNode[] = [];
+let renderRef: Function;
+
+/**
+ * 将元素渲染进 renderedElementContainer
+ * @param element
+ */
+export const renderElement = (element: ReactNode) => {
+	renderedElements.push(element);
+	if (!renderRef) {
+		console.error(
+			`An error occurred during the rendering process that caused an error in the rendering function`
+		);
+		return;
+	}
+	renderRef();
+};
+
+const RenderedElement = React.memo((props: RenderedElementType) => {
+	return <React.Fragment>{props.ele}</React.Fragment>;
+});
+
 export const ViewController = () => {
 	const viewController = useRef<HTMLDivElement>(null);
 	const canvasParentContainer = useRef<HTMLDivElement>(null);
+	const [render, setRender] = useState(false);
 	const [controllerSize, setControllerSize] = useState({
 		controllerWidth: 0,
 		controllerHeight: 0,
@@ -20,6 +44,9 @@ export const ViewController = () => {
 		canvasParentContainer.current?.clientHeight,
 		1
 	);
+
+	renderRef = () => setRender(!render);
+
 	useEffect(() => {
 		setControllerSize({
 			controllerWidth: viewController.current?.clientWidth as number,
@@ -52,7 +79,11 @@ export const ViewController = () => {
 			/>
 
 			<div style={canvasParentContainerStyle()} ref={canvasParentContainer}>
-				<div style={canvasStyle()}></div>
+				<div style={canvasStyle()} id='renderedElementContainer'>
+					{renderedElements.map((ele, index) => {
+						return <RenderedElement ele={ele} key={index}></RenderedElement>;
+					})}
+				</div>
 			</div>
 		</div>
 	);
