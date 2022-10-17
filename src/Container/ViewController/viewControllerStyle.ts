@@ -79,7 +79,7 @@ export const canvasStyle = (): React.CSSProperties => {
 		width: '1920px',
 		backgroundColor: 'rgba(0,0,0,0.08)',
 		zIndex: '2',
-		borderRadius: '8px',
+		border: '2px dashed blue',
 	};
 };
 

@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { RenderedElements } from './RenderedElements';
+import { RenderedElements } from './RenderedElements/RenderedElements';
 import { useAppSelector } from '../../store/hooks';
 import { selectRenderedElements } from '../../store/features/element/elementSlice';
 import { Ruler } from './Ruler';

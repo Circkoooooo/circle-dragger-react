@@ -4,8 +4,9 @@ import { ElementType } from '../../types/ElementType';
 const textElementStyle = (): { [type: string]: React.CSSProperties } => {
 	return {
 		root: {
-			height: '20px',
+			height: 'fit-content',
 			width: '200px',
+			userSelect: 'none',
 			backgroundColor: '#fff',
 		},
 	};
@@ -14,6 +15,6 @@ const textElementStyle = (): { [type: string]: React.CSSProperties } => {
 export const TextElement = (): ElementType => {
 	return {
 		alias: '普通文本',
-		realComponent: <input style={textElementStyle().root} />,
+		realComponent: <div style={textElementStyle().root}>普通文本</div>,
 	};
 };
