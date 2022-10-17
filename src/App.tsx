@@ -1,7 +1,7 @@
 import { ViewController } from './Container/ViewController/ViewController';
 import { ElementController } from './Container/ElementController/ElementController';
 import './App.css';
-import * as DraggerElement from './Components/DraggerElement/expose';
+import * as DraggerElement from './Components/expose';
 import { ElementType } from './types/ElementType';
 
 /**
@@ -11,11 +11,7 @@ import { ElementType } from './types/ElementType';
 const collectDraggerElement = () => {
 	const elementBucket: ElementType[] = [];
 	for (const [, item] of Object.entries(DraggerElement)) {
-		const { alias, realComponent } = item();
-		elementBucket.push({
-			alias: alias,
-			realComponent: realComponent,
-		});
+		elementBucket.push({ ...item() });
 	}
 	return elementBucket;
 };

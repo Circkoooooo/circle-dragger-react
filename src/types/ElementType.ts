@@ -2,13 +2,10 @@ import { ReactNode } from 'react';
 
 export type ElementType = {
 	alias: string;
-	realComponent: JSX.Element;
-};
-
-export type RenderedElementType = {
-	ele: ReactNode;
+	realComponent: ReactNode;
+	type: 'layout' | 'element';
 };
 
 export type RenderedElementsType = {
-	renderedElements?: RenderedElementType[];
+	renderedElements: ElementType[];
 };

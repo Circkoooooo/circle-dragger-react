@@ -15,6 +15,7 @@ const textElementStyle = (): { [type: string]: React.CSSProperties } => {
 export const TextElement = (): ElementType => {
 	return {
 		alias: '普通文本',
+		type: 'element',
 		realComponent: <div style={textElementStyle().root}>普通文本</div>,
 	};
 };

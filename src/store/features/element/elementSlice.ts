@@ -1,10 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ReactNode } from 'react';
 import { RootState } from '../..';
-import { RenderedElementType } from '../../../types/ElementType';
+import { ElementType } from '../../../types/ElementType';
 
 interface ElementSlice {
-	renderedElements: RenderedElementType[];
+	renderedElements: ElementType[];
 }
 
 // 使用该类型定义初始 state
@@ -15,10 +14,8 @@ export const elementSlice = createSlice({
 	name: 'element',
 	initialState,
 	reducers: {
-		renderElement: (state, action: PayloadAction<ReactNode>) => {
-			state.renderedElements.push({
-				ele: action.payload,
-			});
+		renderElement: (state, action: PayloadAction<ElementType>) => {
+			state.renderedElements.push(action.payload);
 		},
 	},
 });

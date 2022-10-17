@@ -13,7 +13,7 @@ export const ElementController = (props: ElementControllerType) => {
 		<div
 			className='element'
 			key={index}
-			onClick={() => dispatch(renderElement(item.realComponent))}
+			onClick={() => dispatch(renderElement(item))}
 		>
 			<div>{item.alias}</div>
 		</div>
