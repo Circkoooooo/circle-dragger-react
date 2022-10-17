@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import elementReducer from '../store/features/element/elementSlice';
+import elementTreeReducer from './features/element/elementTree';
 
 export const store = configureStore({
 	reducer: {
 		element: elementReducer,
+		elementTree: elementTreeReducer,
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({
