@@ -12,8 +12,24 @@ export const mouseElement = (
 		setStyle(defaultStyle);
 	};
 
+	const elementClickEvent = (
+		e: React.MouseEvent,
+		rootStyle: React.CSSProperties
+	) => {
+		
+	};
+
 	return {
 		mouseEnterElement,
 		mouseLeaveElement,
+		elementClickEvent,
 	};
+};
+
+/**
+ * 渲染元素的样式参数配置
+ */
+export const ElementStyleConfiguration: React.CSSProperties = {
+	width: 0,
+	height: 0,
 };

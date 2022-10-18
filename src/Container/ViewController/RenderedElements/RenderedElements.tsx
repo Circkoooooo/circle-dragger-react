@@ -9,12 +9,13 @@ import './RenderedStyle.css';
  */
 const RenderedElement = React.memo(
 	({ type, realComponent, renderedElements, style }: ElementType): any => {
-		const [elementStyle, setElementStyle] = useState<React.CSSProperties>(
-			{} as React.CSSProperties
-		);
+		const [renderedElementStyle, setRenderedElementStyle] =
+			useState<React.CSSProperties>(style as React.CSSProperties);
+		const [elementMaskStyle, setElementMaskStyle] =
+			useState<React.CSSProperties>({} as React.CSSProperties);
 
-		const { mouseLeaveElement, mouseEnterElement } =
-			mouseElement(setElementStyle);
+		const { mouseLeaveElement, mouseEnterElement, elementClickEvent } =
+			mouseElement(setElementMaskStyle);
 
 		if (type === 'element') {
 			return (
@@ -23,7 +24,7 @@ const RenderedElement = React.memo(
 					onMouseEnter={(e) => mouseEnterElement(e)}
 					onMouseLeave={(e) => mouseLeaveElement(e)}
 				>
-					<div className='draggerelement_mask' style={elementStyle}></div>
+					<div className='draggerelement_mask' style={elementMaskStyle}></div>
 					{realComponent}
 				</div>
 			);
@@ -33,9 +34,10 @@ const RenderedElement = React.memo(
 					className='draggerlayout'
 					onMouseEnter={(e) => mouseEnterElement(e)}
 					onMouseLeave={(e) => mouseLeaveElement(e)}
-					style={style}
+					onClick={(e) => elementClickEvent(e, renderedElementStyle)}
+					style={renderedElementStyle}
 				>
-					<div className='draggerlayout_mask' style={elementStyle}></div>
+					<div className='draggerlayout_mask' style={elementMaskStyle}></div>
 					{renderedElements?.map((renderedElement, index) => {
 						return (
 							<RenderedElement
