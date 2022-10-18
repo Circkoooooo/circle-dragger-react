@@ -3,6 +3,7 @@ import { ElementController } from './Container/ElementController/ElementControll
 import './App.css';
 import * as DraggerElement from './Components/expose';
 import { ElementType } from './types/ElementType';
+import { DataController } from './Container/DataContainter/DataController';
 
 /**
  * 搜集所有的组件到列表中
@@ -23,6 +24,7 @@ function App() {
 				elementList={collectDraggerElement()}
 			></ElementController>
 			<ViewController></ViewController>
+			<DataController></DataController>
 		</div>
 	);
 }
