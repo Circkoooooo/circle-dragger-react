@@ -15,7 +15,14 @@ export const elementSlice = createSlice({
 	initialState,
 	reducers: {
 		renderElement: (state, action: PayloadAction<ElementType>) => {
-			state.renderedElements.push(action.payload);
+			const item = state.renderedElements.find(
+				(item) => item.type === 'layout'
+			);
+			if (item && item.renderedElements && action.payload.type !== 'layout') {
+				item.renderedElements.push(action.payload);
+			} else {
+				state.renderedElements.push(action.payload);
+			}
 		},
 	},
 });
