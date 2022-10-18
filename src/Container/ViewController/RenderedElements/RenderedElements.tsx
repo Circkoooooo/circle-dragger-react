@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { ElementType, RenderedElementsType } from '../../../types/ElementType';
 import { mouseElement } from './useRenderedElements';
 import { canvasStyle } from '../viewControllerStyle';
@@ -8,7 +8,7 @@ import './RenderedStyle.css';
  * 渲染元素
  */
 const RenderedElement = React.memo(
-	({ type, realComponent, renderedElements }: ElementType): any => {
+	({ type, realComponent, renderedElements, style }: ElementType): any => {
 		const [elementStyle, setElementStyle] = useState<React.CSSProperties>(
 			{} as React.CSSProperties
 		);
@@ -24,7 +24,6 @@ const RenderedElement = React.memo(
 					onMouseLeave={(e) => mouseLeaveElement(e)}
 				>
 					<div className='draggerelement_mask' style={elementStyle}></div>
-					{renderedElements?.length}
 					{realComponent}
 				</div>
 			);
@@ -34,12 +33,17 @@ const RenderedElement = React.memo(
 					className='draggerlayout'
 					onMouseEnter={(e) => mouseEnterElement(e)}
 					onMouseLeave={(e) => mouseLeaveElement(e)}
+					style={style}
 				>
 					<div className='draggerlayout_mask' style={elementStyle}></div>
-					{renderedElements?.map((item, index) => (
-						<Fragment key={index}>{item.realComponent}</Fragment>
-					))}
-					{realComponent}
+					{renderedElements?.map((renderedElement, index) => {
+						return (
+							<RenderedElement
+								{...renderedElement}
+								key={index}
+							></RenderedElement>
+						);
+					})}
 				</div>
 			);
 		}

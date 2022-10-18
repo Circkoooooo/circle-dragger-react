@@ -6,8 +6,8 @@ const textElementStyle = (): { [type: string]: React.CSSProperties } => {
 		root: {
 			height: 'fit-content',
 			width: '200px',
-			userSelect: 'none',
 			backgroundColor: '#fff',
+			zIndex: '2',
 		},
 	};
 };

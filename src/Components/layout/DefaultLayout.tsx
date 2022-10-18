@@ -4,7 +4,8 @@ import { defaultLayoutStyle } from './LayoutStyle';
 export const DefaultLayout = (): ElementType => {
 	return {
 		alias: '默认布局',
-		realComponent: <div style={defaultLayoutStyle()}>DefaultLayout</div>,
+		renderedElements: [],
+		style: defaultLayoutStyle(),
 		type: 'layout',
 	};
 };
