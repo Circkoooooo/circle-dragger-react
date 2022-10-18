@@ -1,5 +1,5 @@
-import { DataControllerStyle } from './DataControllerStyle';
+import './DataControllerStyle.css';
 
 export const DataController = () => {
-	return <div style={DataControllerStyle()}></div>;
+	return <div className='data_controller'></div>;
 };
