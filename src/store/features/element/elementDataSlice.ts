@@ -5,7 +5,7 @@ interface ElementData {
 	currentStyle: React.CSSProperties | null;
 }
 const initialState: ElementData = {
-	currentStyle: {},
+	currentStyle: null,
 };
 export const elementDataSlice = createSlice({
 	name: 'elementData',

@@ -3,4 +3,8 @@ export namespace DataMap {
 		height?: string;
 		width?: string;
 	};
+	export type Box = {
+		padding?: string;
+		margin?: string;
+	};
 }
