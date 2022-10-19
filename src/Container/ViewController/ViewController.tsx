@@ -42,7 +42,7 @@ export const ViewController = () => {
 				controllerHeight,
 			});
 		});
-		window.addEventListener('click', (e) => {
+		canvasParentContainer.current?.addEventListener('click', (e) => {
 			dispatch(setCurrentStyleConfiguration(null));
 		});
 	}, [dispatch]);
