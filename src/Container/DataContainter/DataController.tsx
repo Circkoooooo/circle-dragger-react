@@ -10,17 +10,13 @@ export const DataController = () => {
 		selectCurrentStyleConfiguration
 	);
 
-	const formatStyle = (style: React.CSSProperties) => {
-		const lines = [];
-		for (const [key, value] of Object.entries(style)) {
-			lines.push(`${key}-${value}`);
-		}
-		return lines.join('\n');
+	const dataControllerClassName = () => {
+		if (currentStyleConfiguration === null) return 'data_controller_close';
+		return '';
 	};
 	return (
-		<div className='data_controller'>
+		<div className={`${dataControllerClassName()} data_controller`}>
 			{DataToNode(currentStyleConfiguration)}
-			{/* {formatStyle(currentStyleConfiguration)} */}
 		</div>
 	);
 };

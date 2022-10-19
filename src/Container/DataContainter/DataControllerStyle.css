@@ -4,4 +4,10 @@
 	right: 0;
 	background-color: white;
 	z-index: 1;
+	transition: all ease-in-out 0.15s;
+}
+
+
+.data_controller_close {
+	width: 0;
 }

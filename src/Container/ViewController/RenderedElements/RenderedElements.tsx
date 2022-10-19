@@ -70,7 +70,7 @@ export const RenderedElements = ({
 	renderedElements,
 }: RenderedElementsType) => {
 	return (
-		<div style={canvasStyle()}>
+		<div style={canvasStyle()} id='renderedElementContainer'>
 			{renderedElements.map((renderedElement, index) => {
 				return (
 					<RenderedElement {...renderedElement} key={index}></RenderedElement>

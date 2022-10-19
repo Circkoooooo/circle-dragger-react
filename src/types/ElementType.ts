@@ -5,7 +5,7 @@ export type ElementType = {
 	type: 'layout' | 'element';
 	realComponent?: ReactNode;
 	renderedElements?: ElementType[];
-	style?: React.CSSProperties;
+	style: React.CSSProperties;
 };
 
 export type RenderedElementsType = {

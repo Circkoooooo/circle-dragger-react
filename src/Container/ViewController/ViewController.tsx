@@ -2,17 +2,20 @@ import { useRef, useState, useEffect } from 'react';
 import { RenderedElements } from './RenderedElements/RenderedElements';
 import { useAppSelector } from '../../store/hooks';
 import { selectRenderedElements } from '../../store/features/element/elementSlice';
+import { setCurrentStyleConfiguration } from '../../store/features/element/elementDataSlice';
 import { Ruler } from './Ruler';
 import { useViewControllerConfig } from './useViewController';
 import {
 	canvasParentContainerStyle,
 	viewControllerStyle,
 } from './viewControllerStyle';
+import { useDispatch } from 'react-redux';
 
 export const ViewController = () => {
 	const viewController = useRef<HTMLDivElement>(null);
 	const canvasParentContainer = useRef<HTMLDivElement>(null);
 	const renderedElements = useAppSelector(selectRenderedElements);
+	const dispatch = useDispatch();
 
 	const [controllerSize, setControllerSize] = useState({
 		controllerWidth: 0,
@@ -39,7 +42,10 @@ export const ViewController = () => {
 				controllerHeight,
 			});
 		});
-	}, []);
+		window.addEventListener('click', (e) => {
+			dispatch(setCurrentStyleConfiguration(null));
+		});
+	}, [dispatch]);
 
 	return (
 		<div style={viewControllerStyle()} ref={viewController}>

@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import { Size } from './DataElements/Size/Size';
 
-export const DataToNode = (styles: React.CSSProperties) => {
+export const DataToNode = (styles: React.CSSProperties | null) => {
+	if (styles === null) return;
 	const { width, height } = styles;
 	const nodes = [];
 

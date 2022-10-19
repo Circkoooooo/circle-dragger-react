@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../..';
 
 interface ElementData {
-	currentStyle: React.CSSProperties;
+	currentStyle: React.CSSProperties | null;
 }
 const initialState: ElementData = {
 	currentStyle: {},
@@ -13,9 +13,9 @@ export const elementDataSlice = createSlice({
 	reducers: {
 		setCurrentStyleConfiguration: (
 			state,
-			action: PayloadAction<React.CSSProperties>
+			action: PayloadAction<React.CSSProperties | null>
 		) => {
-			state.currentStyle = { ...action.payload };
+			state.currentStyle = action.payload;
 		},
 	},
 });
