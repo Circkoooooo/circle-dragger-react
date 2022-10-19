@@ -3,6 +3,8 @@ export const LAYOUT_ATTRIBUTE: React.CSSProperties = {
 	minHeight: '100px',
 	backgroundColor: 'white',
 	padding: '20px',
+	display: 'flex',
+	flexWrap: 'wrap',
 };
 
 export const defaultLayoutStyle = (): React.CSSProperties => {

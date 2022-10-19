@@ -1,3 +1,4 @@
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { RenderedElementStyle } from './RenderedStyle';
 
 const { defaultStyle, hoverStyle } = RenderedElementStyle();
@@ -14,9 +15,11 @@ export const mouseElement = (
 
 	const elementClickEvent = (
 		e: React.MouseEvent,
-		rootStyle: React.CSSProperties
+		rootStyle: React.CSSProperties,
+		callBack: Function
 	) => {
-		
+		e.stopPropagation();
+		callBack();
 	};
 
 	return {
