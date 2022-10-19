@@ -1,6 +1,9 @@
 import { selectCurrentStyleConfiguration } from '../../store/features/element/elementDataSlice';
 import { useAppSelector } from '../../store/hooks';
 import './DataControllerStyle.css';
+import './DataElements/DataElementStyle.css';
+
+import { DataToNode } from './DataToNode';
 
 export const DataController = () => {
 	const currentStyleConfiguration = useAppSelector(
@@ -16,7 +19,8 @@ export const DataController = () => {
 	};
 	return (
 		<div className='data_controller'>
-			{formatStyle(currentStyleConfiguration)}
+			{DataToNode(currentStyleConfiguration)}
+			{/* {formatStyle(currentStyleConfiguration)} */}
 		</div>
 	);
 };

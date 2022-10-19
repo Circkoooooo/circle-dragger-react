@@ -1,4 +1,3 @@
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { RenderedElementStyle } from './RenderedStyle';
 
 const { defaultStyle, hoverStyle } = RenderedElementStyle();

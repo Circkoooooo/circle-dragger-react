@@ -1,0 +1,30 @@
+.dataelement_size {}
+
+.element_item {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 40px;
+	margin: 10px;
+	font-size: 16px;
+}
+
+.item_name {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	font-weight: bold;
+}
+
+.item_value {
+	flex: 2;
+	height: 100%;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	border-radius: 4px;
+}
